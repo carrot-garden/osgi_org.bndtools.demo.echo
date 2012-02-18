@@ -1,3 +1,13 @@
-bndtools echo demo
+Bndtools Echo OSGi Demo
+=======================
 
 The project contains a simple OSGi bndtools demo project. 
+To show the basic features of bndtools in a running example.
+
+Demo Projects
+-------------
+
+The demo contains the follow three projects:
+1. cnf - configuration project contains two local OSGi bundle repositories and the parent ant config.
+2. org.bndtools.demo.echo - The project contains the source for three bundles a echo API, swing and client bundle.
+3. org.bndtools.demo.echo.test - Project contains a bnd demo integrated test for the echo service.
