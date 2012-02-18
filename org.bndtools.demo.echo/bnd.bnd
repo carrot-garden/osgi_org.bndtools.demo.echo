@@ -1,0 +1,9 @@
+Bundle-Version: 1.0.0
+-sub: *.bnd
+-runfw: org.eclipse.osgi;version='[3.7.1.R37x_v20110808-1106,3.7.1.R37x_v20110808-1106]'
+-runee: JavaSE-1.6
+-buildpath: osgi.cmpn;version=4.2.0.200908310645,\
+	osgi.core;version=4.2.0.200908310645,\
+	biz.aQute.junit;version=1.0.0,\
+	junit.osgi;version=3.8.2
+-runvm: -Dosgi.console

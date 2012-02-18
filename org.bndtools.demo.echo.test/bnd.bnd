@@ -1,0 +1,13 @@
+Test-Cases: ${classes;CONCRETE;EXTENDS;junit.framework.TestCase}
+Private-Package: org.bndtools.demo.echo.tests,\
+	aQute.junit.runtime
+-buildpath: osgi.core;version='[4.1,5)',\
+	osgi.cmpn,\
+	junit.osgi,\
+	org.bndtools.demo.echo.api;version=1.0.0,\
+	biz.aQute.junit;version=1.0.0
+-runfw: org.eclipse.osgi;version='[3.7.1.R37x_v20110808-1106,3.7.1.R37x_v20110808-1106]'
+-runee: JavaSE-1.6
+-runvm: -Dosgi.console
+-runbundles: org.bndtools.demo.echo.api;version=latest,\
+	org.bndtools.demo.echo.swing;version=latest

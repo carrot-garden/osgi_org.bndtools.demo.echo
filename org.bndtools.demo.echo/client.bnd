@@ -1,0 +1,2 @@
+Private-Package: org.bndtools.demo.echo.client
+Bundle-Activator: org.bndtools.demo.echo.client.Activator

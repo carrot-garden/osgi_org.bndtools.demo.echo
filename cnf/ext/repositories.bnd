@@ -1,0 +1,8 @@
+repo:           ${build}/repo
+releaserepo:    ${build}/releaserepo
+
+-plugin: aQute.lib.deployer.obr.LocalOBR;name=Local Repository;local=${repo};readonly=false,\
+	aQute.lib.deployer.obr.LocalOBR;name=Release;local=${releaserepo};readonly=false,\
+	org.osgi.impl.bundle.bindex.BundleIndexerImpl;path:=${repo}/org.osgi.impl.bundle.bindex/org.osgi.impl.bundle.bindex-2.2.0.jar
+
+-releaserepo:   Release

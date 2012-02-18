@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<?xml-stylesheet type='text/xsl' href='http://www.osgi.org/www/obr2html.xsl'?>
+
+<repository lastmodified='20120219000809.599' name='Release'>
+  <resource id='org.bndtools.demo.echo.api/1.0.0' presentationname='org.bndtools.demo.echo.api' symbolicname='org.bndtools.demo.echo.api' uri='org.bndtools.demo.echo.api/org.bndtools.demo.echo.api-1.0.0.jar' version='1.0.0'>
+    <size>
+      3264
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bndtools.demo.echo.api'/>
+      <p n='symbolicname' v='org.bndtools.demo.echo.api'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bndtools.demo.echo.api'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+  </resource>
+  <resource id='org.bndtools.demo.echo.client/1.0.0' presentationname='org.bndtools.demo.echo.client' symbolicname='org.bndtools.demo.echo.client' uri='org.bndtools.demo.echo.client/org.bndtools.demo.echo.client-1.0.0.jar' version='1.0.0'>
+    <size>
+      8281
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bndtools.demo.echo.client'/>
+      <p n='symbolicname' v='org.bndtools.demo.echo.client'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=org.bndtools.demo.echo.api)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))' multiple='false' name='package' optional='false'>
+      Import package org.bndtools.demo.echo.api ;version=[1.0.0,2.0.0)
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=[1.5.0,2.0.0)
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.util.tracker)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.util.tracker ;version=[1.4.0,2.0.0)
+    </require>
+  </resource>
+  <resource id='org.bndtools.demo.echo.swing/1.0.0' presentationname='org.bndtools.demo.echo.swing' symbolicname='org.bndtools.demo.echo.swing' uri='org.bndtools.demo.echo.swing/org.bndtools.demo.echo.swing-1.0.0.jar' version='1.0.0'>
+    <size>
+      8173
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bndtools.demo.echo.swing'/>
+      <p n='symbolicname' v='org.bndtools.demo.echo.swing'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=javax.swing)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.swing
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bndtools.demo.echo.api)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))' multiple='false' name='package' optional='false'>
+      Import package org.bndtools.demo.echo.api ;version=[1.0.0,2.0.0)
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=[1.5.0,2.0.0)
+    </require>
+  </resource>
+  <resource id='org.bndtools.demo.echo.tests/1.0.0' presentationname='org.bndtools.demo.echo.tests' symbolicname='org.bndtools.demo.echo.tests' uri='org.bndtools.demo.echo.tests/org.bndtools.demo.echo.tests-1.0.0.jar' version='1.0.0'>
+    <size>
+      12137
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bndtools.demo.echo.tests'/>
+      <p n='symbolicname' v='org.bndtools.demo.echo.tests'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=junit.framework)(version&gt;=3.8.0)(!(version&gt;=4.0.0)))' multiple='false' name='package' optional='false'>
+      Import package junit.framework ;version=[3.8.0,4.0.0)
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bndtools.demo.echo.api)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))' multiple='false' name='package' optional='false'>
+      Import package org.bndtools.demo.echo.api ;version=[1.0.0,2.0.0)
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=[1.5.0,2.0.0)
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.packageadmin)(version&gt;=1.2.0)(!(version&gt;=2.0.0)))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.service.packageadmin ;version=[1.2.0,2.0.0)
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.util.tracker)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.util.tracker ;version=[1.4.0,2.0.0)
+    </require>
+  </resource>
+</repository>
