@@ -10,4 +10,6 @@ Private-Package: org.bndtools.demo.echo.tests,\
 -runee: JavaSE-1.6
 -runvm: -Dosgi.console
 -runbundles: org.bndtools.demo.echo.api;version=latest,\
-	org.bndtools.demo.echo.swing;version=latest
+	org.bndtools.demo.echo.swing;version=latest,\
+	org.apache.felix.scr;version=1.6.0,\
+	osgi.cmpn;version=4.2.0.200908310645
