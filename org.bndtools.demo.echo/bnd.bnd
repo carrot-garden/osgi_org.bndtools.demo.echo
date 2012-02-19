@@ -5,5 +5,8 @@ Bundle-Version: 1.0.0
 -buildpath: osgi.cmpn;version=4.2.0.200908310645,\
 	osgi.core;version=4.2.0.200908310645,\
 	biz.aQute.junit;version=1.0.0,\
-	junit.osgi;version=3.8.2
+	junit.osgi;version=3.8.2,\
+	biz.aQute.bnd.annotation;version=1.51.1
 -runvm: -Dosgi.console
+-runbundles: org.apache.felix.scr;version=1.6.0,\
+	osgi.cmpn;version=4.2.0.200908310645

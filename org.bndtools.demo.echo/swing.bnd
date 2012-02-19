@@ -1,2 +1,2 @@
 Private-Package: org.bndtools.demo.echo.swing
-Bundle-Activator: org.bndtools.demo.echo.swing.Activator
+Service-Component: *

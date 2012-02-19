@@ -2,6 +2,9 @@ package org.bndtools.demo.echo.swing;
 
 import org.bndtools.demo.echo.api.Echo;
 
+import aQute.bnd.annotation.component.Component;
+
+@Component
 public class EchoSwingImpl implements Echo {
 	
 	private TransparentMessageWindow messageWindow = new TransparentMessageWindow();
