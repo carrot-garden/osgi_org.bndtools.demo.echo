@@ -13,3 +13,10 @@ The demo contains following projects:
 2. org.bndtools.demo.echo - The project contains the source for three bundles a echo API, swing and client bundle.
 3. org.bndtools.demo.echo.test - Project contains a bnd based OSGi integrated test for the echo service.
 
+Branches
+---------
+
+The project contains two branches
+
+1. Master - The branch contains the demo code with plain OSGi service handling.
+2. OSGiDeclarativeServices - Contains the same demo with DS service handling.
