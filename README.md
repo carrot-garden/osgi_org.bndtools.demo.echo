@@ -16,7 +16,8 @@ The demo contains following projects:
 GIT Branches
 ------------
 
-The project contains two branches
+The project contains the following branches
 
 1. Master - Contains the demo code with plain OSGi service handling.
 2. OSGiDeclarativeServices - Contains the same demo with DS service handling.
+3. Groovy - A groovy based implemenation of the Echo Service. The demo code shows how to use groovy with bndtools.
