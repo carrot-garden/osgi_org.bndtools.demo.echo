@@ -10,14 +10,19 @@
 
 	<target name="init" unless="initialized">
 		<tstamp>
-			<format property="NOW" pattern="yyyyMMdd-HHmm" timezone="UTC"/>
+			<format property="NOW" pattern="yyyyMMdd-HHmm" timezone="UTC" />
 		</tstamp>
-		
+
 		<dirname property="projectdir" file="${ant.file}" />
 		<dirname property="workspacedir" file="${projectdir}" />
 		<taskdef resource="aQute/bnd/ant/taskdef.properties">
 			<classpath>
-				<path location="${workspacedir}/cnf/repo/biz.aQute.bnd/biz.aQute.bnd-1.51.1.jar"/>
+				<path location="${workspacedir}/cnf/repo/biz.aQute.bnd/biz.aQute.bnd-1.51.1.jar" />
+			</classpath>
+		</taskdef>
+		<taskdef name="groovyc" classname="org.codehaus.groovy.ant.Groovyc">
+			<classpath>
+				<path location="${workspacedir}/cnf/repo/groovy-all/groovy-all-1.8.6.jar" />
 			</classpath>
 		</taskdef>
 
@@ -25,7 +30,7 @@
 
 		<!-- mark init has been run -->
 		<property name="initialized" value="set" />
-		<echo message="Enter project ${project.name}"/>
+		<echo message="Enter project ${project.name}" />
 	</target>
 
 	<!-- 
@@ -41,7 +46,7 @@
 	<!--
 	     Test
 	-->
-	<target name="test" depends="compile" >
+	<target name="test" depends="compile">
 		<bnd command="test" exceptions="true" basedir="${project}" />
 	</target>
 
@@ -50,9 +55,11 @@
 	     Compile the sources. 
 	-->
 	<target name="compile" depends="dependencies" if="project.sourcepath">
-		<mkdir dir="${project.output}"/>
-		<javac fork="yes" executable="${javac}" srcdir="${project.sourcepath}" destdir="${project.output}" classpath="${project.buildpath}" bootclasspath="${project.bootclasspath}" deprecation="true" listfiles="true" target="${javac.target}" source="${javac.source}" debug="${javac.debug}" includeAntRuntime="no" verbose="${verbose}" />
-				
+		<mkdir dir="${project.output}" />
+		<groovyc fork="yes" srcdir="${project.sourcepath}" destdir="${project.output}" classpath="${project.buildpath}" listfiles="true" includeAntRuntime="no" verbose="${verbose}" >
+			<javac classpath="${project.buildpath}" bootclasspath="${project.bootclasspath}" deprecation="true" target="${javac.target}" source="${javac.source}" debug="${javac.debug}" verbose="${verbose}" />
+		</groovyc>
+		
 		<!-- 
 		  The eclipse compiler copies resources but the Javac compiler does not
 		  If ${src} == ${bin} then this is not necessary, but unfortunately, now 
@@ -65,22 +72,22 @@
 			</fileset>
 		</copy>
 	</target>
-	
+
 	<target name="test-compile" depends="compile" if="project.sourcepath">
-			<mkdir dir="${basedir}/bin_test"/>
-			<javac fork="yes" executable="${javac}" srcdir="${basedir}/test" destdir="${basedir}/bin_test" classpath="${project.buildpath}" bootclasspath="${project.bootclasspath}" deprecation="true" listfiles="true" target="${javac.target}" source="${javac.source}" debug="${javac.debug}" includeAntRuntime="no" verbose="${verbose}" />
-					
-			<!-- 
+		<mkdir dir="${basedir}/bin_test" />
+		<javac fork="yes" executable="${javac}" srcdir="${basedir}/test" destdir="${basedir}/bin_test" classpath="${project.buildpath}" bootclasspath="${project.bootclasspath}" deprecation="true" listfiles="true" target="${javac.target}" source="${javac.source}" debug="${javac.debug}" includeAntRuntime="no" verbose="${verbose}" />
+
+		<!-- 
 			  The eclipse compiler copies resources but the Javac compiler does not
 			  If ${src} == ${bin} then this is not necessary, but unfortunately, now 
 			  it is. 
 			-->
-			<copy todir="${basedir}/bin_test" verbose="${verbose}" preservelastmodified="true">
-				<fileset dir="${basedir}/test">
-					<exclude name="**/*.java" />
-					<exclude name="**/*.class" />
-				</fileset>
-			</copy>
+		<copy todir="${basedir}/bin_test" verbose="${verbose}" preservelastmodified="true">
+			<fileset dir="${basedir}/test">
+				<exclude name="**/*.java" />
+				<exclude name="**/*.class" />
+			</fileset>
+		</copy>
 	</target>
 
 	<!-- 
@@ -88,26 +95,26 @@
 		Iterate of the jars to build.
 	-->
 	<target name="build" depends="compile, test-compile">
-		<mkdir dir="${target}"/>
+		<mkdir dir="${target}" />
 		<bnd command="build" exceptions="true" basedir="${project}" />
 	</target>
-	
+
 	<target name="release" depends="build">
 		<subant target="release" inheritAll="false" buildpath="${project.dependson}">
 			<property name="donotrecurse" value="true" />
 		</subant>
-		<bnd command="release" exceptions="true" basedir="${project}"/>
+		<bnd command="release" exceptions="true" basedir="${project}" />
 	</target>
 
 	<target name="junit" depends="build">
-		<junit printsummary="true" haltonfailure="true" haltonerror="true">			
+		<junit printsummary="true" haltonfailure="true" haltonerror="true">
 			<classpath path="${project.buildpath}" />
 			<classpath path="${basedir}/bin_test" />
-			<formatter type="xml"/>
-			<batchtest todir="${target}" >
-			    <fileset dir="${basedir}/test">
-			      <include name="**/*.java"/>
-			    </fileset>
+			<formatter type="xml" />
+			<batchtest todir="${target}">
+				<fileset dir="${basedir}/test">
+					<include name="**/*.java" />
+				</fileset>
 			</batchtest>
 		</junit>
 	</target>
@@ -121,12 +128,12 @@
 
 	<target name="clean" depends="init">
 		<bnd command="clean" exceptions="true" basedir="${project}" />
-		<delete dir="bin"/>
-		<delete dir="bin_test"/>
-		<delete dir="${target}"/>
-		
-		<delete dir="${workspacedir}/cnf/tmp"/>
-		<delete dir="${workspacedir}/cnf/p2target"/>
+		<delete dir="bin" />
+		<delete dir="bin_test" />
+		<delete dir="${target}" />
+
+		<delete dir="${workspacedir}/cnf/tmp" />
+		<delete dir="${workspacedir}/cnf/p2target" />
 	</target>
 
 	<!--
@@ -165,12 +172,19 @@
 		<echo>nodeploy:               ${nodeploy}</echo>
 		<echo>-dependson:             ${-dependson}</echo>
 	</target>
-	
+
 	<!--
 	     Default Target
 	-->
 	<target name="none">
 		<fail message="This ant script should never be directly called." />
+	</target>
+	
+	<!--
+		Run Project with bnd
+	-->
+	<target name="run" depends="compile">
+		<bnd command="run" exceptions="true" basedir="${project}" />
 	</target>
 
 </project>
