@@ -1,2 +1,4 @@
 Private-Package: org.bndtools.demo.echo.client
 Service-Component: *
+Import-Package: *,\
+	groovyx.osgi
