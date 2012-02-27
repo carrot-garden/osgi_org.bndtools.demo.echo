@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <?xml-stylesheet type='text/xsl' href='http://www.osgi.org/www/obr2html.xsl'?>
 
-<repository lastmodified='20120226154145.915' name='Local Repository'>
+<repository lastmodified='20120227211100.807' name='Local Repository'>
   <resource id='biz.aQute.bnd/1.51.1' presentationname='bnd' symbolicname='biz.aQute.bnd' uri='biz.aQute.bnd/biz.aQute.bnd-1.51.1.jar' version='1.51.1'>
     <description>
       A utility and plugin to wrap, build, print, or otherwise manipulate
@@ -1365,6 +1365,46 @@
     </require>
     <require extend='false' filter='(|(ee=J2SE-1.5))' multiple='false' name='ee' optional='false'>
       Execution Environment (|(ee=J2SE-1.5))
+    </require>
+  </resource>
+  <resource id='groovyx.osgi/0.1.0' presentationname='groovyx-osgi' symbolicname='groovyx.osgi' uri='groovyx.osgi/groovyx.osgi-0.1.0.jar' version='0.1.0'>
+    <size>
+      40944
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='groovyx-osgi'/>
+      <p n='symbolicname' v='groovyx.osgi'/>
+      <p n='version' t='version' v='0.1.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='groovyx.osgi'/>
+      <p n='uses' v='groovy.lang,org.codehaus.groovy.reflection,org.codehaus.groovy.runtime,org.osgi.framework,org.codehaus.groovy.runtime.callsite,org.codehaus.groovy.runtime.typehandling,org.codehaus.groovy.runtime.wrappers'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=groovy.lang)(version&gt;=1.7.0))' multiple='false' name='package' optional='false'>
+      Import package groovy.lang ;version=1.7.0
+    </require>
+    <require extend='false' filter='(&amp;(package=groovyx.osgi)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package groovyx.osgi
+    </require>
+    <require extend='false' filter='(&amp;(package=org.codehaus.groovy.reflection)(version&gt;=1.7.0))' multiple='false' name='package' optional='false'>
+      Import package org.codehaus.groovy.reflection ;version=1.7.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.codehaus.groovy.runtime)(version&gt;=1.7.0))' multiple='false' name='package' optional='false'>
+      Import package org.codehaus.groovy.runtime ;version=1.7.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.codehaus.groovy.runtime.callsite)(version&gt;=1.7.0))' multiple='false' name='package' optional='false'>
+      Import package org.codehaus.groovy.runtime.callsite ;version=1.7.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.codehaus.groovy.runtime.typehandling)(version&gt;=1.7.0))' multiple='false' name='package' optional='false'>
+      Import package org.codehaus.groovy.runtime.typehandling ;version=1.7.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.codehaus.groovy.runtime.wrappers)(version&gt;=1.7.0))' multiple='false' name='package' optional='false'>
+      Import package org.codehaus.groovy.runtime.wrappers ;version=1.7.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.5.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.5.0
     </require>
   </resource>
   <resource id='junit.osgi/3.8.2' presentationname='junit.osgi' symbolicname='junit.osgi' uri='junit.osgi/junit.osgi-3.8.2.jar' version='3.8.2'>
